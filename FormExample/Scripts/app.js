@@ -9,14 +9,13 @@ app.directive("userCard", function () {
     };
 });
 app.controller("KisiCtrl", function ($scope) {
-    console.log("ok")
+    
     $scope.kisiler = [];
     $scope.formgöster = false;
 
     function init() {
         var data = JSON.parse(localStorage.getItem("kisiler"));
         $scope.kisiler = data === null ? [] : data;
-
     }
     $scope.eklegoster = function () {
         console.log($scope.formgoster);
