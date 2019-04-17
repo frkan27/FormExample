@@ -18,19 +18,29 @@ app.controller("KisiCtrl", function ($scope) {
         $scope.kisiler = data === null ? [] : data;
     }
     $scope.eklegoster = function () {
-        console.log($scope.formgoster);
+        
         $scope.formgoster = !$scope.formgoster;
     }
     $scope.ekle = function () {
         $scope.kisiler.push({
             id: guid(),
-            Ad: $scope.yeni.adi,
-            Soyad: $scope.yeni.soyadi,
-            Yas: $scope.yeni.yasi
+            adi: $scope.yeni.adi,
+            soyadi: $scope.yeni.soyadi,
+            yasi: $scope.yeni.yasi
         });
-        $scope.yeni.Ad = "";
-        $scope.yeni.Soyad = "";
-        $scope.yeni.Yas = "";
+        $scope.yeni.adi = "";
+        $scope.yeni.soyadi = "";
+        $scope.yeni.yasi = "";
+        localStorage.setItem("kisiler", JSON.stringify($scope.kisiler));
+    };
+    $scope.sil = function (id) {
+        for (var i = 0; i < $scope.kisiler.length; i++) {
+            var data = $scope.kisiler[i];
+            if (id === data.id) {
+                $scope.kisiler.splice(i, 1);
+                break;
+            }
+        }
         localStorage.setItem("kisiler", JSON.stringify($scope.kisiler));
     };
     function guid() {
