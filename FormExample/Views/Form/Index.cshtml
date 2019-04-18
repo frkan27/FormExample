@@ -16,18 +16,18 @@
     <div class="container" ng-controller="KisiCtrl">
         <div class="row">
             <div class="col">
-                <form name="Testform" ng-show="formgoster">
+                <form name="testform" ng-show="formgoster">
                     <input type="text" placeholder="Adınız" name="adi" ng-model="yeni.adi" required minlength="3" /><br />
-                    <label style="color: red;" ng-show="!kisiekle.adi.$valid && kisiekle.adi.$dirty">Lütfen en az 3 karakter giriniz</label><br />
+                    <label style="color: red;" ng-show="!testform.adi.$valid && testform.adi.$dirty">Lütfen en az 3 karakter giriniz</label><br />
                     <input type="text" placeholder="Soyadınız" name="soyadi" ng-model="yeni.soyadi" required minlength="3" /><br />
-                    <label style="color: red;" ng-show="!kisiekle.soyadi.$valid && kisiekle.soyadi.$dirty">Lütfen en az 3 karakter giriniz</label><br />
+                    <label style="color: red;" ng-show="!testform.soyadi.$valid && testform.soyadi.$dirty">Lütfen en az 3 karakter giriniz</label><br />
                     <input type="number" name="yasi" placeholder="Yaşınız" ng-model="yeni.yasi" required min="1" max="999" /><br />
-                    <label style="color: red;" ng-show="kisiekle.yas.$invalid && kisiekle.yas.$dirty">Lütfen 0dan büyük 999dan küçük bir sayı giriniz</label><br />
-                    <input type="button" value="Kaydet" ng-click="ekle()" />
+                    <label style="color: red;" ng-show="testform.yasi.$invalid && testform.yasi.$dirty">Lütfen 0dan büyük 999dan küçük bir sayı giriniz</label><br />
+                    <input type="button" value="Kaydet" ng-click="ekle()" ng-show="testform.$valid" class="btn btn-success"/>
                 </form>
                 <br />
 
-                <input type="button" value="Yeni Form Oluştur" ng-click="eklegoster()" ng-show="!formgoster" class="btn btn-danger" />
+                <input type="button" value="Yeni Form Oluştur" ng-click="eklegoster()" ng-show="!formgoster" class="btn btn-primary" />
 
                 <input type="text" class="text" placeholder="Ara..." ng-model="txtara.adi" />
 
