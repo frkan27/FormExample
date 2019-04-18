@@ -11,7 +11,7 @@ app.directive("userCard", function () {
 app.controller("KisiCtrl", function ($scope) {
     
     $scope.kisiler = [];
-    $scope.formgöster = false;
+    $scope.formgoster = false;
 
     function init() {
         var data = JSON.parse(localStorage.getItem("kisiler"));
@@ -32,6 +32,7 @@ app.controller("KisiCtrl", function ($scope) {
         $scope.yeni.soyadi = "";
         $scope.yeni.yasi = "";
         localStorage.setItem("kisiler", JSON.stringify($scope.kisiler));
+        $scope.formgoster = false;
     };
     $scope.sil = function (id) {
         for (var i = 0; i < $scope.kisiler.length; i++) {
